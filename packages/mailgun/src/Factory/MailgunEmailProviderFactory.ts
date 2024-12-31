@@ -11,10 +11,10 @@ export class MailgunEmailProviderFactory implements EmailProviderFactoryInterfac
 	 * Creates an email sender based on the provided configuration.
 	 *
 	 * @param {TypeMailgunConfig} config - The configuration object for the email provider.
-	 * @returns {Promise<EmailSenderInterface>} - An email provider instance.
+	 * @returns {EmailSenderInterface} - An email provider instance.
 	 * @throws {Error} - Throws an error when requested provider sender can't be created.
 	 */
-	public async createSender(config: TypeMailgunConfig): Promise<EmailSenderInterface>
+	public createSender(config: TypeMailgunConfig): EmailSenderInterface
 	{
 		return new MailgunEmailSender(config);
 	}

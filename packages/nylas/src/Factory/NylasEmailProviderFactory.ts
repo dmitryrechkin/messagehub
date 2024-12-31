@@ -11,10 +11,10 @@ export class NylasEmailProviderFactory implements EmailProviderFactoryInterface<
 	 * Creates an email sender based on the provided configuration.
 	 *
 	 * @param {TypeNylasConfig} config - The configuration object for the email provider.
-	 * @returns {Promise<EmailSenderInterface>} - An email provider instance.
+	 * @returns {EmailSenderInterface} - An email provider instance.
 	 * @throws {Error} - Throws an error when requested provider sender can't be created.
 	 */
-	public async createSender(config: TypeNylasConfig): Promise<EmailSenderInterface>
+	public createSender(config: TypeNylasConfig): EmailSenderInterface
 	{
 		return new NylasEmailSender(config);
 	}

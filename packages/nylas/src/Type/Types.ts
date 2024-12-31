@@ -1,4 +1,4 @@
-import type { TypeBaseConfig } from "@messagehub/core";
+import type { TypeBaseConfig } from '@messagehub/core';
 
 export interface TypeNylasEmailAttachment
 {

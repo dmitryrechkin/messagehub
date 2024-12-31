@@ -55,7 +55,7 @@ export class NylasEmailSender implements EmailSenderInterface
 		{
 			return {
 				success: false,
-				messages: [ 
+				messages: [
 					{
 						code: EnumErrorCode.VALIDATION_ERROR,
 						text: 'The email message could not be transformed.'

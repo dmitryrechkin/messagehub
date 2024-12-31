@@ -11,10 +11,10 @@ export class SendGridEmailProviderFactory implements EmailProviderFactoryInterfa
 	 * Creates an email sender based on the provided configuration.
 	 *
 	 * @param {TypeSendGridConfig} config - The configuration object for SendGrid.
-	 * @returns {Promise<EmailSenderInterface>} - An instance of SendGridEmailSender.
+	 * @returns {EmailSenderInterface} - An instance of SendGridEmailSender.
 	 * @throws {Error} - Throws an error if the sender cannot be created.
 	 */
-	public async createSender(config: TypeSendGridConfig): Promise<EmailSenderInterface>
+	public createSender(config: TypeSendGridConfig): EmailSenderInterface
 	{
 		return new SendGridEmailSender(config);
 	}

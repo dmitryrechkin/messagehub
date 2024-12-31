@@ -25,7 +25,7 @@ To add a new email provider, you can implement the `EmailProviderFactoryInterfac
    import type { EmailProviderFactoryInterface, EmailSenderInterface } from '@messagehub/core';
 
    export class MyProviderEmailProviderFactory implements EmailProviderFactoryInterface<TypeMyProviderConfig> {
-       public async createSender(config: TypeMyProviderConfig): Promise<EmailSenderInterface> {
+       public createSender(config: TypeMyProviderConfig): EmailSenderInterface {
            return new MyProviderEmailSender(config);
        }
    }
@@ -48,6 +48,18 @@ To add a new email provider, you can implement the `EmailProviderFactoryInterfac
    ```
 
 4. **Use Transformers and Types**: It is recommended to use transformers and types to ensure consistency in the data being processed. This helps maintain the expected structure and format across different email providers.
+
+5. **Self-Registering the Package**: To make your package self-registering, ensure your package registers the factory with the `EmailProviderFactoryRegistry` and exports the factory class as the default export in `index.ts`. For example:
+
+```typescript
+import { EmailProviderFactoryRegistry } from '@messagehub/core';
+import { MyProviderEmailProviderFactory } from './Factory/MyProviderEmailProviderFactory';
+
+EmailProviderFactoryRegistry.registerEmailProviderFactory('my-provider', new MyProviderEmailProviderFactory());
+
+// default export so that core factory can use it directly
+export default MyProviderEmailProviderFactory;
+```
 
 ### Folder Structure
 

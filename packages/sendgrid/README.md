@@ -24,6 +24,8 @@ The `sendEmail` function can be used as follows:
 
 ```typescript
 import { sendEmail } from '@messagehub/core';
+// Import the provider package to trigger self-registration
+import '@messagehub/sendgrid';
 
 const emailMessage = {
   from: [{ email: 'sender@example.com', name: 'Sender Name' }],

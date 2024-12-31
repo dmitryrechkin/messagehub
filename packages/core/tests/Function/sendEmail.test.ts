@@ -2,6 +2,8 @@ import { describe, it, expect } from 'vitest';
 import { TypeResendConfig } from '../../../resend/src';
 import { sendEmail, TypeEmailMessage } from '../../src';
 import dotenv from 'dotenv';
+// Import the Resend provider to register it
+import '@messagehub/resend';
 
 // Load environment variables from .env file
 dotenv.config();
@@ -16,7 +18,7 @@ describe('sendEmail - Integration tests', () => {
 
 		const message: TypeEmailMessage = {
 			from: [{ email: 'onboarding@resend.dev', name: 'Sender Name' }],
-			to: [{ email: process.env.RESEND_TEST_TO_EMAIL, name: 'Recipient Name' }],
+			to: [{ email: process.env.RESEND_TEST_TO_EMAIL!, name: 'Recipient Name' }],
 			subject: 'Test Email',
 			text: 'This is a test email.',
 			html: '<p>This is a test email.</p>',

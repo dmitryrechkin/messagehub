@@ -3,6 +3,10 @@ import type { TypeNylasConfig } from '../../../nylas/src';
 import type { TypeResendConfig } from '../../../resend/src';
 import { EmailProviderFactory, EmailSenderInterface, TypeBaseConfig } from '../../src';
 
+// Import the providers to register them
+import '@messagehub/resend';
+import '@messagehub/nylas';
+
 // Correct configurations for testing (replace with actual test environment values).
 const resendConfig: TypeResendConfig = {
 	MESSAGE_PROVIDER: 'resend',
@@ -29,22 +33,22 @@ describe('EmailProviderFactory Integration', () => {
 
 	describe('createSender with real providers', () => {
 		it('should create a valid Resend EmailSender', async () => {
-			const sender: EmailSenderInterface = await factory.createSender(resendConfig);
+			const sender: EmailSenderInterface = factory.createSender(resendConfig);
 
 			expect(sender).toBeDefined();
 			expect(typeof sender.send).toBe('function');
 		});
 
 		it('should create a valid Nylas EmailSender', async () => {
-			const sender: EmailSenderInterface = await factory.createSender(nylasConfig);
+			const sender: EmailSenderInterface = factory.createSender(nylasConfig);
 
 			expect(sender).toBeDefined();
 			expect(typeof sender.send).toBe('function');
 		});
 
-		it('should throw an error for an unsupported provider', async () => {
-			await expect(factory.createSender(unsupportedProviderConfig))
-				.rejects.toThrow(`Failed to create a sender for the provider "${unsupportedProviderConfig.MESSAGE_PROVIDER}".`);
+		it('should throw an error for an unsupported provider', () => {
+			expect(() => factory.createSender(unsupportedProviderConfig))
+				.toThrow(`No email provider factory found for the provider "${unsupportedProviderConfig.MESSAGE_PROVIDER}".`);
 		});
 	});
 });
