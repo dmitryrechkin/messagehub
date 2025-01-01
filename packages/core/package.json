@@ -17,16 +17,16 @@
 		"@dmitryrechkin/eslint-standard": "^1.0.7",
 		"@messagehub/nylas": "workspace:*",
 		"@messagehub/resend": "workspace:*",
-		"fix-esm-import-path": "^1.0.1",
-		"dotenv": "^16.4.5",
-		"eslint": "^8.0.0",
-		"eslint-plugin-unused-imports": "^3.0.0",
+		"dotenv": "^16.4.7",
+		"eslint": "^8.57.1",
+		"eslint-plugin-unused-imports": "^3.2.0",
+		"fix-esm-import-path": "^1.10.1",
+		"shx": "^0.3.4",
 		"tsconfig-paths": "^4.2.0",
-		"typescript": "^5.5.3",
-		"vitest": "^0.24.5",
-		"shx": "^0.3.4"
+		"typescript": "^5.7.2",
+		"vitest": "^0.24.5"
 	},
 	"dependencies": {
-		"zod": "^3.23.8"
+		"zod": "^3.24.1"
 	}
 }

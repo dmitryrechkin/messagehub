@@ -9,9 +9,10 @@
     "format": "pnpm --filter @messagehub/* run format",
     "test": "pnpm --filter @messagehub/* run test",
     "build": "pnpm --filter @messagehub/core run build && pnpm --filter '!@messagehub/core' run build",
-    "package:publish": "pnpm --filter @messagehub/core run package:publish && pnpm --filter @messagehub/* run package:publish"
+    "package:publish": "pnpm --filter @messagehub/core run package:publish && pnpm --filter @messagehub/* run package:publish",
+    "upgrade-deps": "pnpm up --recursive"
   },
   "devDependencies": {
-    "typescript": "^5.5.3"
+    "typescript": "^5.7.2"
   }
 }
